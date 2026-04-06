@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import random
 number = randint(-10000,10000)
 last=number%10
