@@ -1,11 +1,7 @@
 #!/usr/bin/python3
-def delete_at(my_list1=[], idx=0):
-    if idx < 0 or idx >= len(my_list1):
-        return my_list1[:]
-    new_list = []
-    for i in range(len(my_list1)):
-        if i != idx:
-            new_list.append(my_list1[i])
-    global my_list
-    my_list = new_list
-    return new_list
+def delete_at(my_list=[], idx=0):
+    # Если индекс вне диапазона, просто возвращаем список без изменений
+    if 0 <= idx < len(my_list):
+        # Эта команда меняет САМ список, который передали в функцию
+        del my_list[idx]
+    return my_list
