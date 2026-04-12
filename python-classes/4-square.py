@@ -6,21 +6,27 @@ class Square:
     """Класс Square, определяющий квадрат."""
 
     def __init__(self, size=0):
-        """Инициализация нового квадрата.
-
-        Args:
-            size (int): Размер стороны квадрата.
+        """Инициализация.
+        
+        Обрати внимание: используем self.size (без подчёркиваний),
+        чтобы сразу сработал сеттер ниже.
         """
-        if not isinstance(size, int):
+        self.size = size
+
+    @property
+    def size(self):
+        """Getter: возвращает значение приватного атрибута __size."""
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """Setter: устанавливает значение __size с проверками."""
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if size < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        self.__size = value
 
     def area(self):
-        """Вычисляет и возвращает текущую площадь квадрата.
-
-        Returns:
-            int: Площадь квадрата (size в квадрате).
-        """
+        """Вычисляет площадь квадрата."""
         return self.__size ** 2
