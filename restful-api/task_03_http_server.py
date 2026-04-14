@@ -7,7 +7,6 @@ import http.server
 import socketserver
 import json
 
-# Определяем порт
 PORT = 8000
 
 class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
@@ -41,7 +40,7 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"OK")
 
-        # Эндпоинт: /info (Дополнительно из задания)
+        # Эндпоинт: /info (Дополнительно)
         elif self.path == '/info':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -52,26 +51,21 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             }
             self.wfile.write(json.dumps(info).encode('utf-8'))
 
-        # Обработка несуществующих эндпоинтов (404)
+        # ОБНОВЛЕНО: Обработка несуществующих эндпоинтов (404)
         else:
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(b"404 Not Found")
+            # Текст изменен на "Endpoint not found" для прохождения тестов
+            self.wfile.write(b"Endpoint not found")
 
 def run_server():
-    """
-    Starts the HTTP server on the defined port.
-    """
-    # Позволяет повторно использовать порт сразу после закрытия сервера
+    """Starts the HTTP server on the defined port."""
     socketserver.TCPServer.allow_reuse_address = True
-
     with socketserver.TCPServer(("", PORT), SimpleAPIHandler) as httpd:
-        print(f"Serving at port {PORT}")
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
-            print("\nShutting down the server.")
             httpd.server_close()
 
 if __name__ == "__main__":
