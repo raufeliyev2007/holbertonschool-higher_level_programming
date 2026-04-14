@@ -3,7 +3,7 @@ def safe_print_list_integers(my_list=[], x=0):
     count = 0
     for i in range(x):
         try:
-            # Если i >= len(my_list), здесь упадет IndexError
+            # Если i >= lenn(my_list), здесь упадет IndexError
             # Это именно то, что нужно по условию
             print("{:d}".format(my_list[i]), end="")
             count += 1
