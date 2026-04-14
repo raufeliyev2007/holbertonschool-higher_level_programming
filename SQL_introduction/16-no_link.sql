@@ -1,5 +1,6 @@
--- Скрипт, который выводит все записи таблицы second_table
--- Выводит score и name, отсортированные по убыванию score
-SELECT score, name 
-FROM second_table 
+-- Скрипт выводит все записи из second_table, где заполнено поле name
+-- Результат отсортирован по убыванию баллов
+SELECT score, name
+FROM second_table
+WHERE name IS NOT NULL
 ORDER BY score DESC;
