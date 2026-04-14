@@ -1,2 +1,5 @@
--- comment
-SELECT score, COUNT(*) AS number FROM second_table GROUP BY score HAVING number > 1 ORDER BY number DESC;
+-- Скрипт, который выводит все записи таблицы second_table
+-- Выводит score и name, отсортированные по убыванию score
+SELECT score, name 
+FROM second_table 
+ORDER BY score DESC;

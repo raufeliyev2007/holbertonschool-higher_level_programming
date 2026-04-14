@@ -1,6 +1,6 @@
--- Скрипт, который выводит все записи из second_table со score >= 10
--- Результат отображается в порядке убывания баллов (топ-результаты первыми)
-SELECT score, name 
-FROM second_table 
-WHERE score >= 10 
+-- Скрипт выводит все записи таблицы second_table
+-- Отображает только колонки score и name
+-- Сортировка строго по убыванию баллов (top score first)
+SELECT score, name
+FROM second_table
 ORDER BY score DESC;
