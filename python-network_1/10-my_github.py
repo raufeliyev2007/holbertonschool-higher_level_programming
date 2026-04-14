@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Comment"""
 import requests
 import sys
 from requests.auth import HTTPBasicAuth

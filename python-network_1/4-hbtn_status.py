@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Comment"""
 import requests
 
 url = "https://intranet.hbtn.io/status"
